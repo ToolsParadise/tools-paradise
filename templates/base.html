@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tools Paradise{% endblock %}</title>
+    
+    <!-- Common Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="wrapper-head">
+        <header>
+            <button class="back-button" onclick="window.location.href='{{ url_for('index') }}';"><i class="fas fa-arrow-left"></i></button>
+            <nav>
+                <h1>Tools Paradise</h1>
+            </nav>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='icon/profile.png') }}" alt="Profile Icon" class="profile-icon" onclick="openProfile()">
+                <div class="dropdown-content">
+                    <a href="{{ url_for('profile_menu', section='profile') }}">Profile</a>
+                    <a href="{{ url_for('profile_menu', section='settings') }}">Settings</a>
+                    <a href="{{ url_for('profile_menu', section='help') }}">Help</a>
+                </div>
+            </div>
+        </header>
+    </div>
+    
+    <div class="body-wrapper">
+        <div class="container">      
+            <div class="content"> 
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" data-content="privacy">Privacy Policy</a> | 
+                    <a href="#" data-content="terms">Terms of Service</a> | 
+                    <a href="#" data-content="about">About Us</a> | 
+                    <a href="#" data-content="contact">Contact Us</a>
+                </div>
+
+            </div>
+            <p>&copy; 2024 Tools Paradise. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="overlay" class="overlay">
+        <div id="overlay-content" class="overlay-content">
+            <button class="close-btn" onclick="closeOverlay()">&times;</button>
+            <div id="overlay-text"></div>
+        </div>
+    </div>
+
+    <div id="privacy-content" class="hidden-content">
+            <h2>Privacy Policy</h2>
+            <p>Welcome to Tools Paradise. We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and disclose your information when you visit our website, use our services, or interact with us.</p>
+            <h3>1. Information We Collect</h3>
+            <p>Personal Information: When you register on our website, submit feedback, or interact with our tools, we may collect personal information such as your name, email address, and any other details you provide.</p>
+            <p>Usage Data: We collect information about how you use our website, including your IP address, browser type, operating system, and pages visited. This data helps us improve our services.</p>
+            <h3>2. How We Use Your Information</h3>
+            <p>We use your information to:</p>
+            <ul>
+                <li>Provide and maintain our services.</li>
+                <li>Improve and personalize your experience on our website.</li>
+                <li>Communicate with you, including responding to your feedback and suggestions.</li>
+                <li>Ensure the security of our website and prevent fraud.</li>
+                <li>Comply with legal obligations.</li>
+            </ul><br>
+            <h3>3. Sharing Your Information</h3>
+            <p>We do not sell, trade, or rent your personal information to third parties. However, we may share your data with:</p>
+            <ul>
+                <li><strong>Service Providers:</strong> Third-party vendors who assist us in operating our website and providing services.</li>
+                <li><strong>Legal Authorities:</strong> If required by law or to protect our rights and safety.</li>
+            </ul>
+            <br>
+            <h3>4. Cookies</h3>
+            <p>Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences and improve site functionality. You can manage your cookie preferences through your browser settings.</p>
+            <h3>5. Data Security</h3>
+            <p>We implement robust security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, please note that no method of transmission over the Internet or electronic storage is 100% secure.</p>
+            <h3>6. Your Rights</h3>
+            <p>You have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+                <li><strong>Rectification:</strong> Correct any inaccuracies in your personal data.</li>
+                <li><strong>Deletion:</strong> Request the deletion of your personal data.</li>
+                <li><strong>Objection:</strong> Object to the processing of your personal data under certain conditions.</li>
+            </ul>
+            <p>To exercise these rights, please contact us at [Insert Contact Email].</p>
+            <h3>7. Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any significant changes by posting the new policy on our website.</p>
+            <h3>8. Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy or our data practices, please contact us at:</p>
+            <p><strong>Tools Paradise</strong><br>
+            Email: toolsparadise.ays@gmail.com<br></p>
+    </div>
+    <div id="terms-content" class="hidden-content">
+            <h2>Terms of Service</h2>
+            <p>These Terms of Service ("Terms") govern your use of the Tools Paradise website and services. By accessing or using our website, you agree to these Terms. If you do not agree with these Terms, please do not use our services.</p>
+            <h3>1. Use of Our Services</h3>
+            <p>You agree to use our services only for lawful purposes and in accordance with our policies. You must not use our services in a way that could damage, disable, or impair the website or interfere with other users' access to it.</p>
+            <h3>2. Intellectual Property</h3>
+            <p>All content and materials on our website are owned by Tools Paradise or our licensors. You may not reproduce, distribute, or create derivative works from our content without our express permission.</p>
+            <h3>3. Limitation of Liability</h3>
+            <p>We are not liable for any direct, indirect, incidental, or consequential damages arising from your use of our services or your inability to access them.</p>
+            <h3>4. Changes to These Terms</h3>
+            <p>We may update these Terms from time to time. We will notify you of any significant changes by posting the new Terms on our website. Your continued use of our services constitutes your acceptance of the updated Terms.</p>
+            <h3>5. Governing Law</h3>
+            <p>These Terms are governed by and construed in accordance with the laws of India. Any disputes arising under these Terms will be subject to the exclusive jurisdiction of the courts in India.</p>
+    </div>
+    <div id="about-content" class="hidden-content">
+            <h2>About Us</h2>
+            <p>Tools Paradise is dedicated to providing a wide range of tools designed to simplify your tasks and enhance productivity. Our mission is to offer innovative solutions that meet your needs and exceed your expectations.</p>
+            <p>Our team is passionate about technology and committed to delivering high-quality tools and exceptional service. We continuously strive to improve our offerings and ensure that our users have the best possible experience.</p>
+            <p>Thank you for choosing Tools Paradise. We value your feedback and suggestions, as they help us to better serve you.</p>
+    </div>
+    <div id="contact-content" class="hidden-content">
+        <h2>Contact Us</h2>
+         <p>We’d love to hear from you! If you have any questions, comments, or suggestions, please reach out to us using the contact information below.</p>
+        <div class="contact-row">
+            <div class="contact-links">
+                <ul>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:toolsparadise.ays@gmail.com"> toolsparadise.ays@gmail.com</a></li>
+                    <li><i class="fab fa-github"><a href="https://github.com/yourusername" target="_blank"></i> ToolsParadise</a></li>
+                    <li><i class="fab fa-whatsapp"><a href="https://wa.me/yourphonenumber" target="_blank"></i> +911234567890</a></li>
+                    
+                </ul>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <textarea name="message" placeholder="Message"></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/base.js') }}"> </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

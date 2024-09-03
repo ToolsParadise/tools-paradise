@@ -1,0 +1,11 @@
+.content-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.content-section p {
+    justify-content: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}

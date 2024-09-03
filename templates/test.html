@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolbox Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Tools Paradise</h1>
+        </nav>
+        <div class="search-bar">
+            <input type="search" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+        <div class="profile">
+            <img src="profile-picture.png" alt="Profile Icon" class="profile-icon" onclick="openProfile()">
+            <div class="dropdown-content">
+                <a href="#">Profile</a>
+                <a href="#">Settings</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <section id="tool1" class="section">
+            <div class="description">
+                <h2>Password Generator</h2>
+                <p>Generate strong, unique passwords with ease. Our password generator ensures your accounts stay protected from potential threats by creating complex, hard-to-crack passwords that meet the highest security standards. Don't compromise on security—generate your passwords instantly.</p>
+                <a href="#" class="btn">Generate</a>
+            </div>
+            <img src="tool1.jpg" alt="Tool 1 Image" class="aos-animate">
+        </section>
+        <section id="tool2" class="section">
+            <div class="description">
+                <h2>Password Managerr</h2>
+                <p>Keep all your passwords organized in one secure place. Our password manager allows you to store and manage your login credentials efficiently, so you never have to worry about forgetting a password again. Access your passwords from anywhere with full encryption and peace of mind.</p>
+                <a href="#" class="btn">Manage</a>
+            </div>
+            <img src="tool2.jpg" alt="Tool 2 Image" class="aos-animate">
+        </section>
+        <section id="tool3" class="section">
+            <div class="description">
+                <h2>YouTube Downloader</h2>
+                <p>Save your favorite YouTube videos directly to your device with our easy-to-use downloader. Whether you need content for offline viewing or archiving, our tool lets you download videos in various formats and resolutions, ensuring you always have access to the content you love.</p>
+                <a href="#" class="btn">Download</a>
+            </div>
+            <img src="tool3.jpg" alt="Tool 3 Image" class="aos-animate">
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tools Paradise. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

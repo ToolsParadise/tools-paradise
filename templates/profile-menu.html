@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile-menu.css') }}">
+{% endblock %}
+
+{% block content %}
+        <div id="profile-section" class="content-section">
+            <h2>Profile</h2>
+            <p>Your profile information goes here.</p>
+        </div>
+        
+        <div id="settings-section" class="content-section">
+            <h2>Settings</h2>
+            <p>Your settings options go here.</p>
+        </div>
+        
+        <div id="help-section" class="content-section">
+            <h2>Help</h2>
+            <p>Your help information goes here.</p>
+        </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/profile-menu.js') }}" defer></script>
+{% endblock %}
